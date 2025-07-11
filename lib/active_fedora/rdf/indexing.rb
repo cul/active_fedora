@@ -14,7 +14,7 @@ module ActiveFedora
             if val.kind_of? ::RDF::URI
               val = val.to_s 
             elsif val.kind_of? ActiveTriples::Resource
-              val = val.solrize
+              val = val.node? ? val.rdf_label : val.rdf_subject.to_s
             end
             self.class.create_and_insert_terms(apply_prefix(field_key), val, field_info[:behaviors], solr_doc)
           end
