@@ -92,13 +92,14 @@ describe ActiveFedora::Datastreams do
   end
  
   describe "#datastreams" do
+    let(:permitted_classes) { [ActiveFedora::Base, ActiveFedora::DatastreamHash, ActiveFedora::RelsExtDatastream, ActiveFedora::UnsavedDigitalObject, Symbol]}
     it "should return the datastream hash proxy" do
       allow(subject).to receive(:load_datastreams)
       expect(subject.datastreams).to be_a_kind_of(ActiveFedora::DatastreamHash)
     end
     
     it "should round-trip to/from YAML" do
-      expect(YAML.load(subject.datastreams.to_yaml).inspect).to eq(subject.datastreams.inspect)
+      expect(YAML.load(subject.datastreams.to_yaml, permitted_classes: permitted_classes, aliases: true).inspect).to eq(subject.datastreams.inspect)
     end
   end
 
