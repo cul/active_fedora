@@ -17,16 +17,22 @@ Gem::Specification.new do |s|
   s.add_dependency 'rsolr', ">= 1.0.11", '< 3'
   s.add_dependency 'om', '~> 3.1'
   s.add_dependency 'nom-xml', '>= 0.5.1'
-  s.add_dependency "activesupport", '>= 4.2.10'
+  s.add_dependency 'nokogiri', '~> 1.15.2'
+  s.add_dependency "activemodel", '>= 6.0.0', '< 7.2.0'
+  s.add_dependency "activesupport", '>= 6.0.0', '< 7.2.0'
   s.add_dependency "rubydora", '>= 1.8.0', '< 3'
-  s.add_dependency "active-triples", '~> 0.4.0'
+  # active-triples 0.8.0 is the last release to work with rdf < 2
+  # active-triples 0.7.0 breaks base_uri and overrides fields
+  s.add_dependency "active-triples", '~> 0.6.0'
+  s.add_dependency "multi_json", '~> 1.14.0'
+  s.add_dependency "rdf", '~> 1.1'
   s.add_dependency "rdf-rdfxml", '~> 1.1'
   s.add_development_dependency "rdoc"
   s.add_development_dependency "yard"
   s.add_development_dependency "rake"
   s.add_development_dependency "jettywrapper", ">=1.4.0"
-  s.add_development_dependency "rspec", "~> 3.0"
-  s.add_development_dependency "rspec-its"
+  s.add_development_dependency "rspec", "~> 3.13.0"
+  s.add_development_dependency "rspec-its", "~> 1.3.0"
   s.add_development_dependency "equivalent-xml"
   s.add_development_dependency "rest-client"
   s.add_development_dependency "webmock"

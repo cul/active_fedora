@@ -66,7 +66,7 @@ module ActiveFedora
       
       # don't want content eagerly loaded by proxy, so implementing methods that would be implemented by define_attribute_methods 
       def ng_xml_will_change!
-        attributes_changed_by_setter[:ng_xml] = nil
+        attribute_will_change!(:ng_xml) if ng_xml.present?
       end
 
       def ng_xml_doesnt_change!
