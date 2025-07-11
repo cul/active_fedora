@@ -3,7 +3,7 @@ shared_examples_for "An ActiveModel" do
     expect(test).to eq(true)
   end
 
-  def assert_equal(test, obj)
+  def assert_equal(test, obj, msg = nil)
     expect(test).to eq(obj)
   end
 
