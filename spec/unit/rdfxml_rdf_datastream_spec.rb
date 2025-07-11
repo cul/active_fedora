@@ -49,7 +49,7 @@ describe ActiveFedora::RdfxmlRDFDatastream do
         end
       end
 
-      class MyDatastream < ActiveFedora::RdfxmlRDFDatastream
+      class MyRdfxmlDatastream < ActiveFedora::RdfxmlRDFDatastream
         property :resource_type, :predicate => DAMS.typeOfResource
         property :title, :predicate => DAMS.title, :class_name => 'Description'
 
@@ -72,12 +72,12 @@ describe ActiveFedora::RdfxmlRDFDatastream do
     end
 
     after do
-      Object.send(:remove_const, :MyDatastream)
+      Object.send(:remove_const, :MyRdfxmlDatastream)
       Object.send(:remove_const, :DAMS)
     end
 
     describe "a new instance" do
-      subject { MyDatastream.new(double('inner object', :pid=>'test:1', :new_record? =>true), 'descMetadata', about:"http://library.ucsd.edu/ark:/20775/") }
+      subject { MyRdfxmlDatastream.new(double('inner object', :pid=>'test:1', :new_record? =>true), 'descMetadata', about:"http://library.ucsd.edu/ark:/20775/") }
       it "should have a subject" do
         expect(subject.rdf_subject.to_s).to eq("http://library.ucsd.edu/ark:/20775/")
       end
@@ -86,7 +86,7 @@ describe ActiveFedora::RdfxmlRDFDatastream do
 
     describe "an instance with content" do
       subject do
-        subject = MyDatastream.new(double('inner object', :pid=>'test:1', :new_record? =>true), 'descMetadata', about:"http://library.ucsd.edu/ark:/20775/")
+        subject = MyRdfxmlDatastream.new(double('inner object', :pid=>'test:1', :new_record? =>true), 'descMetadata', about:"http://library.ucsd.edu/ark:/20775/")
         subject.content = File.new('spec/fixtures/damsObjectModel.xml').read
         subject
       end
