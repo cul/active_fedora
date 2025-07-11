@@ -84,7 +84,7 @@ module ActiveFedora
                         klass.property(config.term, 
                                        predicate: config.predicate, 
                                        class_name: config.class_name, 
-                                       multivalue: config.multivalue)
+                                       multivalue: true) # all nodes are multivalue since active-triples 0.5.0
                       end
                       klass.accepts_nested_attributes_for(*nested_attributes_options.keys) unless nested_attributes_options.blank?
                       uri_stub = digital_object ? self.class.rdf_subject.call(self) : nil
