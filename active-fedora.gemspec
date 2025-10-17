@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rsolr', ">= 1.0.11", '< 3'
   s.add_dependency 'om', '~> 3.1'
   s.add_dependency 'nom-xml', '>= 0.5.1'
-  s.add_dependency 'nokogiri', '~> 1.15.2'
+  s.add_dependency 'nokogiri', '~> 1.15'
   s.add_dependency "activemodel", '>= 6.0.0', '< 7.2.0'
   s.add_dependency "activesupport", '>= 6.0.0', '< 7.2.0'
   s.add_dependency "rubydora", '>= 1.8.0', '< 3'
